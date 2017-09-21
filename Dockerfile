@@ -1,6 +1,8 @@
 FROM quay.io/nordstrom/kubectl:1.7.6-1
 MAINTAINER Nordstrom Platform Team "techk8s@nordstrom.com"
 
+USER root
+
 ENV HELM_TARBALL helm-v2.6.1-linux-amd64.tar.gz
 ADD https://kubernetes-helm.storage.googleapis.com/$HELM_TARBALL .
 RUN tar --strip-components 1 -xvzC /bin -f $HELM_TARBALL linux-amd64/helm
